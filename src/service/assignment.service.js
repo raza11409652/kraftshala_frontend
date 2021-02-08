@@ -1,7 +1,7 @@
 import axios from 'axios'
 import {AssignmentList ,
      AssignmentNew,UpcomingAssignment ,SubmittedSolution,
-      SolutionSubmit,GetSolution , SingleSol,solutionCheck} from '../config/server'
+      SolutionSubmit,GetSolution , SingleSol,solutionCheck ,GetStudentSolution} from '../config/server'
 const getAssignmentList =async ({token})=>{
     
     return await axios.get(AssignmentList , {headers:{
@@ -94,6 +94,15 @@ const solutionChecking = async({token , formdata})=>{
     })
 
 }
+const getSolutionforStud=async({student})=>{
+    var url = GetStudentSolution +student
+    return await axios.get(url).then(data=>{
+        return data.data
+    }).catch(er=>{
+        return null
+    })
+
+}
 export  {getAssignmentList ,createAssignmentNew , 
     getUpcomingAssignment,getAssignment ,
-    submitSolution,getSubmitted ,getSolution,getSingleSolution,solutionChecking }
+    submitSolution,getSubmitted ,getSolution,getSingleSolution,solutionChecking,getSolutionforStud }

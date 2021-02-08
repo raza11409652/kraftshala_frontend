@@ -13,9 +13,7 @@ return (
                 <li className="menu">
                   <NavLink to="/instructor/assignment"  activeClassName="active"><i className="fa fa-print"></i> Assignment</NavLink>
                 </li>
-                <li className="menu">
-                  <NavLink to="/category"  activeClassName="active"> <i className="fa fa-credit-card"></i> Student</NavLink>
-                </li>
+                
                 <li className="menu">
                   <NavLink to="/instructor/new/assignment"  activeClassName="active"> <i className="fa fa-credit-card"></i> New Assignment</NavLink>
                 </li>

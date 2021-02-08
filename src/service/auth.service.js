@@ -1,5 +1,5 @@
 import axios from 'axios'
-import {Login , Register , AccessToken} from '../config/server'
+import {Login , Register , AccessToken,SearchUser} from '../config/server'
 const loginservice =async ({payload})=>{
     return await axios.post(Login , payload).then(data=>{
         return data.data
@@ -27,4 +27,15 @@ const auth =async({token})=>{
     })
 
 }
-export  {loginservice  , registerService , auth}
+
+const searchUser =async ({query  ,token})=>{
+    const url = SearchUser +query
+    return await axios.get(url , {headers:{"Authorization":token}})
+    .then(data=>{
+        return data.data
+    }).catch(er=>{
+        return null
+    })
+
+}
+export  {loginservice  , registerService , auth , searchUser}

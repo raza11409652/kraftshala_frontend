@@ -11,6 +11,7 @@ import PastSubmission from "../container/student/pastsubmission";
 import SubmitAnswer from "../modal/submit.answer";
 import SubmittedAssignment from "../container/instructor/submission";
 import Markupload from "../container/instructor/mark.upload";
+import StudentAssignment from "../container/instructor/student.view";
 
 const Routes = ()=>{
    
@@ -20,6 +21,7 @@ const Routes = ()=>{
          <Switch>
              <Route exact path="/register" component={Register}></Route>
              <Route exact path="/" component={Login}></Route> 
+             <ProtectedRoute exact path="/view/:id" component={StudentAssignment}></ProtectedRoute>
              <ProtectedRoute exact path="/student/dashboard" component={StudentDashBoard}>
              
             </ProtectedRoute> 
@@ -44,7 +46,7 @@ const Routes = ()=>{
             <ProtectedRoute exact path="/student/assignment/past" component={PastSubmission}>
 
             </ProtectedRoute>
-            <Route exact path="*" component={Error}></Route>
+            <Route  path="*" component={Error}></Route>
          </Switch>
         </BrowserRouter>
     </Suspense>
